@@ -35,25 +35,19 @@ describe("숫자 야구 게임", () => {
       "3스트라이크",
       "게임 종료",
     ];
-
     mockRandoms(randoms);
     mockQuestions(answers);
-
     const app = new App();
     app.play();
-
     messages.forEach((output) => {
       expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(output));
     });
   });
-
   test("예외 테스트", () => {
     const randoms = [1, 3, 5];
     const answers = ["1234"];
-
     mockRandoms(randoms);
     mockQuestions(answers);
-
     expect(() => {
       const app = new App();
       app.play();
